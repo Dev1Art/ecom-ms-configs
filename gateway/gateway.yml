@@ -1,9 +1,6 @@
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
       routes:
         - id: auth-service
           uri: lb://auth-service
@@ -36,20 +33,3 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/users/**
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URL:http://eureka:8761/eureka} 
-  instance:
-    prefer-ip-address: true 
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG 
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info

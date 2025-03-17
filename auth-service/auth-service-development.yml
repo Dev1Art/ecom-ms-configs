@@ -1,0 +1,14 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ecom-ms
